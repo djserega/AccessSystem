@@ -52,14 +52,13 @@
                     </Button>
                     <Separator Background="{x:Null}" Width="3"/>
                     <Button x:Name="ButtonPower"  Style="{StaticResource WindowsMenuButtonBase}"  Click="ButtonPower_Click">
-                        
                         <Button Style="{StaticResource WindowsMenuButtonPower}"/>
                     </Button>
                     <Separator Background="{x:Null}" Width="3"/>
                 </StackPanel>
             </Grid>
         </Grid>
-
+        <!--ToggleContent="Заявки доступа" -->
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="110"/>
@@ -72,16 +71,47 @@
                     <GradientStop Color="#FFFFEA8C" Offset="0.08"/>
                 </LinearGradientBrush>
             </Grid.Background>
+          
             <StackPanel Grid.Row="0">
-                <Button x:Name="ButtonRequest" Content="Заявки доступа" Style="{StaticResource ButtonMenu}" Click="ButtonRequest_Click"/>
-                <Button x:Name="ButtonBase" Content="Базы данных" Style="{StaticResource ButtonMenu}" Click="ButtonBase_Click"/>
-                <Button x:Name="ButtonUser" Content="Пользователи" Style="{StaticResource ButtonMenu}"/>
+               
+                <materialDesing:PopupBox Style="{StaticResource PopupBoxMenu}">
+                    <materialDesing:PopupBox.ToggleContent>
+                        <TextBlock Style="{StaticResource TextBlockMenu}">Заявки доступа</TextBlock>
+                    </materialDesing:PopupBox.ToggleContent>
+                    <StackPanel Style="{StaticResource StackPanelPopupMenu}">
+                        <Button x:Name="ButtonRequestObject" Content="Создать" Style="{StaticResource ButtonMenu}" Click="ButtonRequestObject_Click"/>
+                        <Button x:Name="ButtonRequestListNotConfirmed" Content="Не подтвержденные" Style="{StaticResource ButtonMenu}"/>
+                        <Button x:Name="ButtonRequestList" Content="Список" Style="{StaticResource ButtonMenu}" Click="ButtonRequestList_Click"/>
+                    </StackPanel>
+                </materialDesing:PopupBox>
+                
+                <materialDesing:PopupBox Style="{StaticResource PopupBoxMenu}">
+                    <materialDesing:PopupBox.ToggleContent>
+                        <TextBlock Style="{StaticResource TextBlockMenu}">Базы данных</TextBlock>
+                    </materialDesing:PopupBox.ToggleContent>
+                    <StackPanel Style="{StaticResource StackPanelPopupMenu}">
+                        <Button x:Name="ButtonBaseObject" Content="Создать" Style="{StaticResource ButtonMenu}"/>
+                        <Button x:Name="ButtonBaseList" Content="Список" Style="{StaticResource ButtonMenu}"/>
+                    </StackPanel>
+                </materialDesing:PopupBox>
+
+                <materialDesing:PopupBox Style="{StaticResource PopupBoxMenu}">
+                    <materialDesing:PopupBox.ToggleContent>
+                        <TextBlock Style="{StaticResource TextBlockMenu}">Пользователи</TextBlock>
+                    </materialDesing:PopupBox.ToggleContent>
+                    <StackPanel Style="{StaticResource StackPanelPopupMenu}">
+                        <Button x:Name="ButtonUserObject" Content="Создать" Style="{StaticResource ButtonMenu}"/>
+                        <Button x:Name="ButtonUserList" Content="Список" Style="{StaticResource ButtonMenu}"/>
+                    </StackPanel>
+                </materialDesing:PopupBox>
+
             </StackPanel>
+            
             <StackPanel Grid.Row="1">
                 <Separator Background="WhiteSmoke" Height="2"/>
             </StackPanel>
             <StackPanel x:Name="StackPanelOpened" Grid.Row="2">
-           </StackPanel>
+            </StackPanel>
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="2">
@@ -101,7 +131,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <StackPanel x:Name="StackPanelFrame" Orientation="Horizontal">
-                
+
                 <Frame x:Name="FrameMain" NavigationUIVisibility="Hidden"/>
             </StackPanel>
         </Grid>

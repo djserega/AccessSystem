@@ -47,7 +47,7 @@ namespace AccessSystem
 
         private void ButtonPower_Click(object sender, RoutedEventArgs e)
         {
-            //Application.Current.Shutdown();
+            Application.Current.Shutdown();
         }
 
         private void ButtonMinimize_Click(object sender, RoutedEventArgs e)
@@ -71,6 +71,16 @@ namespace AccessSystem
 
         private void ButtonBase_Click(object sender, RoutedEventArgs e)
         {
+        }
+
+        private void ButtonRequestObject_Click(object sender, RoutedEventArgs e)
+        {
+            OpenForm("ObjectRequest");
+        }
+
+        private void ButtonRequestList_Click(object sender, RoutedEventArgs e)
+        {
+            OpenForm("ListRequest");
         }
 
         #endregion
