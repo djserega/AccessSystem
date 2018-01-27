@@ -17,6 +17,9 @@
             </Menu>
             <Grid Margin="5,0,5,0">
                 <WrapPanel Orientation="Vertical">
+
+                    <Separator Style="{StaticResource SeparatorBetweenRow}"/>
+                    
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Номер" Style="{StaticResource FormBaseLabel}"/>
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
@@ -27,11 +30,15 @@
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
                         <DatePicker x:Name="DatePickerDate" Style="{StaticResource DatePickerFormBase}"/>
                     </StackPanel>
+                    
                     <Separator Style="{StaticResource SeparatorBetweenRow}"/>
+                    
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Комментарий" Style="{StaticResource FormBaseLabel}"/>
+                        <Separator Style="{StaticResource SeparatorBetweenElement}"/>
                         <TextBox x:Name="TextBoxComment" Style="{StaticResource FormTextBoxComment}"/>
                     </StackPanel>
+                    
                 </WrapPanel>
             </Grid>
         </StackPanel>
