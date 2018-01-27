@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AccessSystem.Forms.FormRequest"
       mc:Ignorable="d" x:Name="ObjectRequest"
-      d:DesignHeight="300" d:DesignWidth="350"
+      d:DesignHeight="300" d:DesignWidth="650"
       Title="Заявка">
 
     <Grid>
@@ -19,11 +19,15 @@
                 <WrapPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Номер" Style="{StaticResource FormBaseLabel}"/>
-                        <TextBox x:Name="TextBoxCode" Style="{StaticResource FormTextBoxCode}"/>
+                        <Separator Style="{StaticResource SeparatorBetweenElement}"/>
+                        <TextBox x:Name="TextBoxCode" Style="{StaticResource FormTextBoxCode}"
+                                 PreviewTextInput="TextBoxCode_PreviewTextInput" PreviewKeyDown="TextBoxCode_PreviewKeyDown" TextChanged="TextBoxCode_TextChanged"/>
+                        <Separator Style="{StaticResource SeparatorBetweenElement}"/>
                         <Label Content="от" Style="{StaticResource FormBaseLabelDatePicker}"/>
-                        <DatePicker x:Name="DatePickerDate" Style="{StaticResource FormBaseDatePicker}"/>
+                        <Separator Style="{StaticResource SeparatorBetweenElement}"/>
+                        <DatePicker x:Name="DatePickerDate" Style="{StaticResource DatePickerFormBase}"/>
                     </StackPanel>
-                    <GridSplitter Height="3"/>
+                    <Separator Style="{StaticResource SeparatorBetweenRow}"/>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Комментарий" Style="{StaticResource FormBaseLabel}"/>
                         <TextBox x:Name="TextBoxComment" Style="{StaticResource FormTextBoxComment}"/>

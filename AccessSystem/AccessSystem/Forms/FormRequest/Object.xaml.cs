@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +22,8 @@ namespace AccessSystem.Forms.FormRequest
     /// </summary>
     public partial class Object : Page
     {
+        Regex _regExpCode = new Regex("[^0-9]");
+
         Request Ref = null;
 
         public Object(Request @ref = null)
@@ -33,6 +36,22 @@ namespace AccessSystem.Forms.FormRequest
                 Ref = @ref;
 
             DataContext = Ref;
+        }
+
+
+        private void TextBoxCode_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBoxCode.Text = _regExpCode.Replace(TextBoxCode.Text, "");
+        }
+
+        private void TextBoxCode_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = _regExpCode.IsMatch(e.Text);
+        }
+
+        private void TextBoxCode_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = e.Key == Key.Space;
         }
     }
 }

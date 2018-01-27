@@ -47,7 +47,7 @@ namespace AccessSystem
 
         private void ButtonPower_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            //Application.Current.Shutdown();
         }
 
         private void ButtonMinimize_Click(object sender, RoutedEventArgs e)
