@@ -11,7 +11,7 @@
     </Style>
 
     <Style TargetType="Separator" x:Key="SeparatorBetweenRow" BasedOn="{StaticResource SeparatorBase}">
-        <Setter Property="Height" Value="2"/>
+        <Setter Property="Height" Value="1"/>
     </Style>
 
 </ResourceDictionary>

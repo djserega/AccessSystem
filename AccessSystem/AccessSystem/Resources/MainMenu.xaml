@@ -52,7 +52,27 @@
         <Setter Property="BorderBrush" Value="{x:Null}"/>
         <Setter Property="FontWeight" Value="DemiBold"/>
     </Style>
+    
+    <Style TargetType="materialDesing:PopupBox" x:Key="PopupBoxMenu">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Margin" Value="5,5,5,0"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="PlacementMode" Value="RightAndAlignMiddles"/>
+        <Setter Property="StaysOpen" Value="False"/>
+    </Style>
 
+    <Style TargetType="TextBlock" x:Key="TextBlockMenu">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Margin" Value="5,5,5,0"/>
+        <Setter Property="Foreground" Value="DarkRed"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+    </Style>
+
+    <Style TargetType="StackPanel" x:Key="StackPanelPopupMenu">
+        <Setter Property="Background" Value="#FFFFEA8C"/>
+    </Style>
+    
     <!--    Команды открытых форм-->
     <Style TargetType="Button" x:Key="ButtonMenuOpened">
         <Setter Property="Height" Value="20"/>
