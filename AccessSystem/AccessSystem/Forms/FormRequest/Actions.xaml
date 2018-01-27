@@ -1,0 +1,26 @@
+﻿<Page x:Class="AccessSystem.Forms.FormRequest.Actions"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AccessSystem.Forms.FormRequest"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Actions">
+
+    <Grid>
+        <StackPanel Margin="5,0,0,5">
+            <TextBlock>
+                <Hyperlink x:Name="HyperLinkList" Click="HyperLinkList_Click">
+                    Список заявок
+                </Hyperlink>
+            </TextBlock>
+            <GridSplitter Height="10"/>
+            <TextBlock>
+                <Hyperlink x:Name="HyperLinlObject" Click="HyperLinlObject_Click">
+                    Создать заявку
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>
