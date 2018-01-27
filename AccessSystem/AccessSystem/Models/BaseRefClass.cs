@@ -55,11 +55,7 @@ namespace AccessSystem.Models
 
         public string Error
         {
-            get
-            {
-                MessageBox.Show("Ошибка");
-                throw new NotImplementedException();
-            }
+            get;
         }
     }
 
