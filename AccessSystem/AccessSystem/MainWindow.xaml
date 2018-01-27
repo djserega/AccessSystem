@@ -5,9 +5,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:AccessSystem"
         mc:Ignorable="d" x:Name="WorkWindow"
-        Title="Система управления правами доступа" Height="350" Width="500"
+        Title="Система управления правами доступа" Height="400" Width="800"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
-        MinHeight="350" MinWidth="500"
+        MinHeight="350" MinWidth="550"
         Loaded="WorkWindow_Loaded">
     <Grid>
 
@@ -37,30 +37,47 @@
             </Grid>
             <Grid Grid.ColumnSpan="2">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="ButtonMinimize" Style="{StaticResource WindowsMenuButtonMinimize}" Click="ButtonMinimize_Click"/>
+                    <Button x:Name="ButtonMinimize" Style="{StaticResource WindowsMenuButtonBase}" Click="ButtonMinimize_Click">
+                        <Button Style="{StaticResource WindowsMenuButtonMinimize}"/>
+                    </Button>
                     <Separator Width="3"/>
-                    <Button x:Name="ButtonExpand" Style="{StaticResource WindowsMenuButtonExpand}" Click="ButtonExpand_Click"/>
+                    <Button x:Name="ButtonExpand" Style="{StaticResource WindowsMenuButtonBase}" Click="ButtonExpand_Click">
+                        <Button Style="{StaticResource WindowsMenuButtonExpand}"/>
+                    </Button>
                     <Separator Width="3"/>
-                    <Button x:Name="ButtonAccount" Style="{StaticResource WindowsMenuButtonAccount}"/>
+                    <Button x:Name="ButtonAccount" Style="{StaticResource WindowsMenuButtonBase}">
+                        <Button Style="{StaticResource WindowsMenuButtonAccount}"/>
+                    </Button>
                     <Separator Width="3"/>
-                    <Button x:Name="ButtonPower" Style="{StaticResource WindowsMenuButtonPower}" Click="ButtonPower_Click"/>
+                    <Button x:Name="ButtonPower"  Style="{StaticResource WindowsMenuButtonBase}"  Click="ButtonPower_Click">
+                        <Button Style="{StaticResource WindowsMenuButtonPower}"/>
+                    </Button>
                     <Separator Width="3"/>
                 </StackPanel>
             </Grid>
         </Grid>
 
         <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFDBFF60" Offset="0"/>
                     <GradientStop Color="#FFFFEA8C" Offset="0.08"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <StackPanel>
+            <StackPanel Grid.RowSpan="2">
                 <Button x:Name="ButtonRequest" Content="Заявки доступа" Style="{StaticResource ButtonMenu}" Click="ButtonRequest_Click"/>
                 <Button x:Name="ButtonBase" Content="Базы данных" Style="{StaticResource ButtonMenu}" Click="ButtonBase_Click"/>
-                <Button Content="Пользователи" Style="{StaticResource ButtonMenu}"/>
+                <Button x:Name="ButtonUser" Content="Пользователи" Style="{StaticResource ButtonMenu}"/>
             </StackPanel>
+            <StackPanel x:Name="StackPanelOpened" Grid.Row="1">
+                <Button Content="Заявки" Style="{StaticResource ButtonMenuOpened}"/>
+                <Button Content="Заявка 1" Style="{StaticResource ButtonMenuOpened}"/>
+                <Button Content="Заявка 2" Style="{StaticResource ButtonMenuOpened}"/>
+           </StackPanel>
         </Grid>
 
         <Grid Grid.Column="2" Grid.Row="2">

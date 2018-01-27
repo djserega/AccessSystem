@@ -21,11 +21,12 @@ namespace AccessSystem
     public partial class MainWindow : Window
     {
         OpenFormEvents openFormEvents = new OpenFormEvents();
+        LoadedFormEvents loadedFormEvents = new LoadedFormEvents();
 
         #region Private fields
 
-        private Dictionary<string, Page> _listPage;
-        private string _lastPage;
+        private Dictionary<string, Page> _listPage = new Dictionary<string, Page>();
+        private List<string> _listSheets = new List<string>();
 
         #endregion
 
@@ -38,7 +39,6 @@ namespace AccessSystem
 
         private void WorkWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            _listPage = new Dictionary<string, Page>();
         }
 
         #endregion
@@ -60,7 +60,6 @@ namespace AccessSystem
             WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
         }
 
-
         #endregion
 
         #region Menu button
@@ -76,34 +75,87 @@ namespace AccessSystem
 
         #endregion
 
-        #region Open form (change frame)
+        #region Open forms
 
-        private void OpenForm(string newFormName)
+        #region Sheets
+
+        private void AddSheetOpenForm(string name, string caption)
         {
-            if (FindPageName(newFormName) == null)
-                openFormEvents.OpenForm += OpenOtherForm;
+            if (!String.IsNullOrWhiteSpace(_listSheets.Find(f => f == name)))
+                return;
 
-            Page form = null;
-
-            switch (newFormName)
+            Style style;
+            try
             {
-                case "ActionsRequest":
-                    form = new Forms.FormRequest.Actions(openFormEvents);
-                    break;
-                case "ListRequest":
-                    form = new Forms.FormRequest.List();
-                    break;
-                case "ObjectRequest":
-                    form = new Forms.FormRequest.Object();
-                    break;
-                default:
-                    return;
+                style = (Style)FindResource("ButtonMenuOpened");
+            }
+            catch (ResourceReferenceKeyNotFoundException)
+            {
+                MessageBox.Show("Не удалось найти стиль оформления страницы открытого окна.");
+                return;
             }
 
-            FrameMain.Content = form;
-            _lastPage = newFormName;
+            Button button = new Button()
+            {
+                Name = name,
+                Content = caption,
+                Style = style,
+            };
+            button.Click += PressedButtonOpenForm;
 
-            AddPageInListPages();
+            StackPanelOpened.Children.Add(button);
+
+            _listSheets.Add(name);
+        }
+
+        private void PressedButtonOpenForm(object sender, RoutedEventArgs e)
+        {
+            OpenForm(((Button)e.Source).Name);
+
+        }
+
+        #endregion
+
+        #region Change frame
+
+        private void OpenForm(string formName)
+        {
+            if (FindPageName(formName) == null)
+                openFormEvents.OpenForm += OpenOtherForm;
+
+            Page form = FindPageName(formName);
+
+            if (form == null)
+            {
+                switch (formName)
+                {
+                    case "ActionsRequest":
+                        form = new Forms.FormRequest.Actions(openFormEvents);
+                        break;
+                    case "ListRequest":
+                        form = new Forms.FormRequest.List();
+                        break;
+                    case "ObjectRequest":
+                        form = new Forms.FormRequest.Object();
+                        break;
+                    default:
+                        return;
+                }
+
+                form.Loaded += OpenForm_Loaded;
+                AddPageInListPages(formName, form);
+            }
+            //else
+            //    form.Loaded -= OpenForm_Loaded;
+
+            FrameMain.Content = form;
+        }
+
+        private void OpenForm_Loaded(object sender, RoutedEventArgs e)
+        {
+            Page page = (Page)e.Source;
+            if (FindPageName(page.Name) != null)
+                AddSheetOpenForm(page.Name, page.Title);
         }
 
         internal void OpenOtherForm()
@@ -111,41 +163,38 @@ namespace AccessSystem
             if (String.IsNullOrWhiteSpace(openFormEvents.PageName))
                 return;
 
-            DeletePageInListPages();
             OpenForm(openFormEvents.PageName);
         }
 
+        #endregion
+
         #region List pages
 
-        private Page FindPageName(string currentPageName)
+        private Page FindPageName(string pageName)
         {
             Page form = null;
 
-            if (!String.IsNullOrWhiteSpace(_lastPage))
-            {
-                var findedPage = _listPage.FirstOrDefault(f => f.Key == currentPageName);
-                if (!String.IsNullOrWhiteSpace(findedPage.Key))
-                    form = findedPage.Value;
-            }
+            var findedPage = _listPage.FirstOrDefault(f => f.Key == pageName);
+            if (!String.IsNullOrWhiteSpace(findedPage.Key)
+                && findedPage.Value != null)
+                form = findedPage.Value;
 
             return form;
         }
 
-        private void AddPageInListPages()
+        private void AddPageInListPages(string formName, Page form)
         {
-            var findedPage = _listPage.FirstOrDefault(f => f.Key == _lastPage);
-            if (String.IsNullOrWhiteSpace(findedPage.Key))
-                _listPage.Add(_lastPage, (Page)FrameMain.Content);
+            if (FindPageName(formName) == null)
+                _listPage.Add(formName, form);
         }
 
-        private void DeletePageInListPages()
+        private void DeletePageInListPages(string formName)
         {
-            if (String.IsNullOrWhiteSpace(_lastPage))
+            if (String.IsNullOrWhiteSpace(formName))
                 return;
 
-            var findedPage = _listPage.FirstOrDefault(f => f.Key == _lastPage);
-            if (!String.IsNullOrWhiteSpace(findedPage.Key))
-                _listPage.Remove(_lastPage);
+            if (FindPageName(formName) != null)
+                _listPage.Remove(formName);
         }
 
         #endregion

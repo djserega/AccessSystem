@@ -23,4 +23,23 @@ namespace AccessSystem
             OpenForm();
         }
     }
+
+    internal delegate void LoadingForms();
+
+    internal class LoadedFormEvents : EventArgs
+    {
+        internal event LoadingForms LoadingForms;
+
+        internal string FormName { get; set; }
+        internal string FormCaption { get; set; }
+
+        internal void FormIsLoaded()
+        {
+            if (LoadingForms == null)
+                return;
+
+            LoadingForms();
+        }
+    }
+
 }

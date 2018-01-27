@@ -14,7 +14,7 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="DarkRed"/>
         </Style>
-        
+
         <!--Рабочий стол приложения. Шапка-->
         <Style TargetType="Button" x:Key="WindowsMenuButton">
             <Setter Property="Height" Value="25"/>
@@ -22,6 +22,7 @@
             <Setter Property="Background" Value="{x:Null}"/>
             <Setter Property="BorderBrush" Value="{x:Null}"/>
             <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="BorderThickness" Value="0"/>
         </Style>
         <Style TargetType="Button" x:Key="WindowsMenuButtonPower" BasedOn="{StaticResource WindowsMenuButton}">
             <Setter Property="Content" Value="{materialDesing:PackIcon Kind=Power}"/>
@@ -36,8 +37,16 @@
         <Style TargetType="Button" x:Key="WindowsMenuButtonExpand" BasedOn="{StaticResource WindowsMenuButton}">
             <Setter Property="Content" Value="{materialDesing:PackIcon Kind=ArrowExpand}"/>
         </Style>
-        
+        <Style TargetType="Button" x:Key="WindowsMenuButtonBase" BasedOn="{StaticResource WindowsMenuButton}">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
         <!--Рабочий стол приложения. Команды-->
+        
+        <!--    Основные комады-->
         <Style TargetType="Button" x:Key="ButtonMenu">
             <Setter Property="Height" Value="30"/>
             <Setter Property="Margin" Value="5,5,5,0"/>
@@ -46,12 +55,20 @@
             <Setter Property="BorderBrush" Value="{x:Null}"/>
             <Setter Property="FontWeight" Value="DemiBold"/>
         </Style>
+        
+        <!--    Команды открытых форм-->
+        <Style TargetType="Button" x:Key="ButtonMenuOpened">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Margin" Value="5,5,5,0"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+        </Style>
 
         <!--Формы. Командная панель-->
         <Style TargetType="Menu" x:Key="Menu">
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Height" Value="30"/>
-            
             <Setter Property="Background">
                 <Setter.Value>
                     <SolidColorBrush Color="#FFFFEA8C" Opacity="0.75"/>
@@ -64,7 +81,7 @@
         <Style TargetType="MenuItem" x:Key="MenuItem">
             <Setter Property="Height" Value="30"/>
         </Style>
-        
+
         <!--Формы. Общие свойства элементов форм-->
 
         <!--    TextBox-->
@@ -108,7 +125,7 @@
         <Style TargetType="Label" x:Key="FormBaseLabelDatePicker" BasedOn="{StaticResource FormBaseLabel}">
             <Setter Property="Width" Value="25"/>
         </Style>
-        
+
         <!--    DatePicker-->
         <Style TargetType="DatePicker" x:Key="FormBaseDatePicker">
             <Setter Property="Background">
@@ -118,6 +135,6 @@
             </Setter>
             <Setter Property="SelectedDateFormat" Value="Long"/>
         </Style>
-        
+
     </Application.Resources>
 </Application>
