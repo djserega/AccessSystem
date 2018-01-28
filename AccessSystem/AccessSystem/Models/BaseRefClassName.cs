@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace AccessSystem.Models
 {
-    public abstract class BaseRefClassName : IBaseRefClass
+    public interface IBaseRefClassName
+    {
+        string this[string columnName] { get; }
+
+        int Code { get; set; }
+        string Comment { get; set; }
+        bool Deletion { get; set; }
+        string Error { get; }
+        string Name { get; set; }
+    }
+
+    public abstract class BaseRefClassName : IBaseRefClass, IBaseRefClassName
     {
         public abstract string this[string columnName] { get; }
 
