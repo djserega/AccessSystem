@@ -28,8 +28,12 @@
                 <ColumnDefinition Width="140"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0">
-                <TextBlock x:Name="TextBlockTitle" Style="{StaticResource Title}">Система управления правами доступа</TextBlock>
+            <Grid x:Name="GridTitle" Grid.Column="0">
+                <TextBlock x:Name="TextBlockTitle" Style="{StaticResource Title}" 
+                           Width="{Binding Path=ActualWidth, ElementName=GridTitle, Converter={local:ElementsFormConverter}, ConverterParameter='10'}"
+                           MouseLeftButtonDown="TextBlockTitle_MouseLeftButtonDown">
+                    Система управления правами доступа
+                </TextBlock>
             </Grid>
             <Grid Grid.Column="1">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">

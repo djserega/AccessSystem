@@ -210,5 +210,10 @@ namespace AccessSystem
         #endregion
 
         #endregion
+
+        private void TextBlockTitle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }
