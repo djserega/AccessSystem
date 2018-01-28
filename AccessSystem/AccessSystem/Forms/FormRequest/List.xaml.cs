@@ -21,14 +21,16 @@ namespace AccessSystem.Forms.FormRequest
     public partial class List : Page
     {
         private OpenFormEvents _event;
-        public ICollection<Models.Object.Request> ListObject { get; }
+        public ICollection<Models.Object.Request> ListObject { get; private set; }
 
         internal List(OpenFormEvents openFormEvents)
         {
             InitializeComponent();
 
+            ListObject = new List<Models.Object.Request>();
+
             _event = openFormEvents;
-            DataGridList.DataContext = ListObject;
+            DataGridList.ItemsSource = ListObject;
         }
 
         private void ButtonCreate_Click(object sender, RoutedEventArgs e)
