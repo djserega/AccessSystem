@@ -20,8 +20,10 @@ namespace AccessSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+
         OpenFormEvents openFormEvents = new OpenFormEvents();
         LoadedFormEvents loadedFormEvents = new LoadedFormEvents();
+        private int _countMouseLeftBtnDown = 0;
 
         #region Private fields
 
@@ -57,7 +59,7 @@ namespace AccessSystem
 
         private void ButtonExpand_Click(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+            ExpandWindowMainMenu();
         }
 
         #endregion
@@ -211,9 +213,32 @@ namespace AccessSystem
 
         #endregion
 
+        #region Other events
+
         private void TextBlockTitle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+
+            if (e.ChangedButton == MouseButton.Left)
+                _countMouseLeftBtnDown++;
+
+            if (_countMouseLeftBtnDown > 1)
+            {
+                ExpandWindowMainMenu();
+                _countMouseLeftBtnDown = 0;
+            }
         }
+
+        #endregion
+
+        #region Private methods
+
+        private void ExpandWindowMainMenu()
+        {
+            WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+        }
+
+        #endregion
+
     }
 }
