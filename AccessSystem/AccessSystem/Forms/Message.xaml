@@ -8,6 +8,7 @@
         Title="Message" Height="150" Width="200" WindowStyle="None"
         Loaded="WindowMessage_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
@@ -20,11 +21,13 @@
                 <Separator Style="{StaticResource SeparatorBetweenElement}"/>
             </StackPanel>
         </Grid>
+        
         <Grid Grid.Row="1" Style="{StaticResource BackgroundWindow}">
             <TextBlock Margin="5,5,5,30" x:Name="TextBlockMessage" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="ButtonOK" Content="OK" Click="ButtonOK_Click" Style="{StaticResource WindowsMenuButton}" Width="auto"/>
             </StackPanel>
         </Grid>
+        
     </Grid>
 </Window>
