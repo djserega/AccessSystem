@@ -14,6 +14,7 @@ namespace AccessSystem
         internal event OpenFormName OpenForm;
 
         internal string PageName { get; set; }
+        internal int Id { get; set; }
 
         internal void ToOpenForm()
         {
