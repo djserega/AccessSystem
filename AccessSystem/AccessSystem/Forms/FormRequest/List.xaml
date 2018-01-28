@@ -4,18 +4,23 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AccessSystem.Forms.FormRequest"
+      xmlns:as="clr-namespace:AccessSystem"
       mc:Ignorable="d" x:Name="ListRequest"
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="300" d:DesignWidth="650"
       Title="Заявки">
     <Grid>
         <StackPanel>
             <Menu Style="{StaticResource Menu}">
-                <MenuItem Header="Создать"  Style="{StaticResource MenuItem}"/>
+                <MenuItem x:Name="ButtonCreate" Header="Создать" Style="{StaticResource MenuItem}"
+                          Click="ButtonCreate_Click"/>
                 <Separator Width="3"/>
-                <MenuItem Header="Редактировать" Style="{StaticResource MenuItem}"/>
+                <MenuItem x:Name="ButtonEdit" Header="Редактировать" Style="{StaticResource MenuItem}"
+                          Click="ButtonEdit_Click"/>
             </Menu>
-            <Grid Margin="5,0,5,0">
-                <DataGrid />
+            <Separator Style="{StaticResource SeparatorBetweenRow}"/>
+            <Grid x:Name="Grid" Margin="5,0,5,0">
+                <DataGrid x:Name="DataGridList"
+                    Width="{Binding Path=ActualWidth, ElementName=Grid, Converter={as:ElementsFormConverter}, ConverterParameter='10'}"/>
             </Grid>
         </StackPanel>
     </Grid>

@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ElementsFormConverter.cs" />
     <Compile Include="Validators.cs" />
     <Page Include="Forms\FormRequest\Actions.xaml">
       <SubType>Designer</SubType>

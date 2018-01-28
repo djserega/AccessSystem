@@ -26,7 +26,9 @@ namespace AccessSystem.Forms.FormRequest
 
         Request Ref = null;
 
-        public Object(Request @ref = null)
+        private OpenFormEvents _event;
+
+        internal Object(OpenFormEvents openFormEvents = null, Request @ref = null)
         {
             InitializeComponent();
 
@@ -36,8 +38,24 @@ namespace AccessSystem.Forms.FormRequest
                 Ref = @ref;
 
             DataContext = Ref;
+            _event = openFormEvents;
         }
 
+        #region Menu
+
+        private void MenuItemSaveClose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItemSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region Elements
 
         private void TextBoxCode_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -53,5 +71,9 @@ namespace AccessSystem.Forms.FormRequest
         {
             e.Handled = e.Key == Key.Space;
         }
+
+        #endregion
+
+
     }
 }

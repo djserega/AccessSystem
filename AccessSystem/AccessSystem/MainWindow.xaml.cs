@@ -143,10 +143,10 @@ namespace AccessSystem
                         form = new Forms.FormRequest.Actions(openFormEvents);
                         break;
                     case "ListRequest":
-                        form = new Forms.FormRequest.List();
+                        form = new Forms.FormRequest.List(openFormEvents);
                         break;
                     case "ObjectRequest":
-                        form = new Forms.FormRequest.Object();
+                        form = new Forms.FormRequest.Object(openFormEvents);
                         break;
                     default:
                         return;

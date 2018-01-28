@@ -72,9 +72,10 @@
                 </LinearGradientBrush>
             </Grid.Background>
           
-            <StackPanel Grid.Row="0">
+            <StackPanel x:Name="StackPanelLeft" Grid.Row="0">
                
-                <materialDesing:PopupBox Style="{StaticResource PopupBoxMenu}">
+                <materialDesing:PopupBox Style="{StaticResource PopupBoxMenu}"
+                                         Width="{Binding Path=ActualWidth, ElementName=StackPanelLeft}">
                     <materialDesing:PopupBox.ToggleContent>
                         <TextBlock Style="{StaticResource TextBlockMenu}">Заявки доступа</TextBlock>
                     </materialDesing:PopupBox.ToggleContent>
@@ -85,7 +86,8 @@
                     </StackPanel>
                 </materialDesing:PopupBox>
                 
-                <materialDesing:PopupBox Style="{StaticResource PopupBoxMenu}">
+                <materialDesing:PopupBox Style="{StaticResource PopupBoxMenu}"
+                                         Width="{Binding Path=ActualWidth, ElementName=StackPanelLeft}">
                     <materialDesing:PopupBox.ToggleContent>
                         <TextBlock Style="{StaticResource TextBlockMenu}">Базы данных</TextBlock>
                     </materialDesing:PopupBox.ToggleContent>
@@ -95,7 +97,8 @@
                     </StackPanel>
                 </materialDesing:PopupBox>
 
-                <materialDesing:PopupBox Style="{StaticResource PopupBoxMenu}">
+                <materialDesing:PopupBox Style="{StaticResource PopupBoxMenu}"
+                                         Width="{Binding Path=ActualWidth, ElementName=StackPanelLeft}">
                     <materialDesing:PopupBox.ToggleContent>
                         <TextBlock Style="{StaticResource TextBlockMenu}">Пользователи</TextBlock>
                     </materialDesing:PopupBox.ToggleContent>
@@ -123,7 +126,7 @@
             </Grid.Background>
         </Grid>
 
-        <Grid Grid.Column="2" Grid.Row="2">
+        <Grid x:Name="Grid" Grid.Column="2" Grid.Row="2">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFDBFF60" Offset="0"/>
@@ -131,8 +134,8 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <StackPanel x:Name="StackPanelFrame" Orientation="Horizontal">
-
-                <Frame x:Name="FrameMain" NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="FrameMain" NavigationUIVisibility="Hidden"
+                       Width="{Binding Path=ActualWidth, ElementName=Grid, Converter={local:ElementsFormConverter}, ConverterParameter='10'}"/>
             </StackPanel>
         </Grid>
 

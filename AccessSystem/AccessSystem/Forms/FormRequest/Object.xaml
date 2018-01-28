@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AccessSystem.Forms.FormRequest"
+      xmlns:as="clr-namespace:AccessSystem"
       mc:Ignorable="d" x:Name="ObjectRequest"
       d:DesignHeight="300" d:DesignWidth="650"
       Title="Заявка">
@@ -11,15 +12,17 @@
     <Grid>
         <StackPanel>
             <Menu Style="{StaticResource Menu}">
-                <MenuItem Header="Записать и закрыть"  Style="{StaticResource MenuItem}"/>
-                <Separator Width="3"/>
-                <MenuItem Header="Записать" Style="{StaticResource MenuItem}"/>
+                <MenuItem x:Name="MenuItemSaveClose" Header="Записать и закрыть" Style="{StaticResource MenuItem}"
+                          Click="MenuItemSaveClose_Click"/>
+                <Separator Style="{StaticResource SeparatorBetweenElement}"/>
+                <MenuItem x:Name="MenuItemSave" Header="Записать" Style="{StaticResource MenuItem}"
+                          Click="MenuItemSave_Click"/>
             </Menu>
-            <Grid Margin="5,0,5,0">
+            <Grid x:Name="Grid" Margin="5,0,5,0">
                 <WrapPanel Orientation="Vertical">
 
                     <Separator Style="{StaticResource SeparatorBetweenRow}"/>
-                    
+
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Номер" Style="{StaticResource FormBaseLabel}"/>
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
@@ -30,15 +33,16 @@
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
                         <DatePicker x:Name="DatePickerDate" Style="{StaticResource DatePickerFormBase}"/>
                     </StackPanel>
-                    
+
                     <Separator Style="{StaticResource SeparatorBetweenRow}"/>
-                    
+
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Комментарий" Style="{StaticResource FormBaseLabel}"/>
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
-                        <TextBox x:Name="TextBoxComment" Style="{StaticResource FormTextBoxComment}"/>
+                        <TextBox x:Name="TextBoxComment"  Style="{StaticResource FormTextBoxComment}"
+                                 Width="{Binding Path=ActualWidth, ElementName=Grid, Converter={as:ElementsFormConverter}, ConverterParameter='110'}"/>
                     </StackPanel>
-                    
+
                 </WrapPanel>
             </Grid>
         </StackPanel>
