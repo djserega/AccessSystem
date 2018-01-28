@@ -50,7 +50,7 @@ namespace AccessSystem.Forms.FormRequest
 
         private void MenuItemSave_Click(object sender, RoutedEventArgs e)
         {
-
+            Dialog.ShowMessage("Заявка записана");
         }
 
         #endregion
