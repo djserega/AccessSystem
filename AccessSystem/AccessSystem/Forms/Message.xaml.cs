@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +22,7 @@ namespace AccessSystem.Forms
     {
         internal string TextMessage { get; set; }
         internal int Timer { get; set; }
+        private string _TextButtonOK;
 
         public Message()
         {
@@ -45,8 +47,10 @@ namespace AccessSystem.Forms
         {
             TextBlockMessage.Text = TextMessage;
 
+            _TextButtonOK = ButtonOK.Content.ToString();
+
             if (Timer > 0)
-                ButtonOK.Content += $" ({Timer} с.)";
+                StartTimerAsync();
         }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
@@ -57,6 +61,24 @@ namespace AccessSystem.Forms
         private void ButtonOK_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private async void StartTimerAsync()
+        {
+            ButtonOK.Content = _TextButtonOK + $" ({Timer} с.)";
+
+            Timer--;
+
+            if (Timer > 0)
+            {
+                await StartTimerPause();
+                StartTimerAsync();
+            }
+        }
+
+        private Task StartTimerPause()
+        {
+            return Task.Run(() => { Thread.Sleep(1000); });
         }
     }
 }
