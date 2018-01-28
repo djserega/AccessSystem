@@ -101,7 +101,7 @@ namespace AccessSystem
             }
             catch (ResourceReferenceKeyNotFoundException)
             {
-                MessageBox.Show("Не удалось найти стиль оформления страницы открытого окна.");
+                Dialog.ShowMessage("Не удалось найти стиль оформления страницы открытого окна.");
                 return;
             }
 
