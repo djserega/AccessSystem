@@ -2,7 +2,30 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:materialDesing="http://materialdesigninxaml.net/winfx/xaml/themes"
                     xmlns:local="clr-namespace:AccessSystem.Resources">
-    
+
+    <!--Фон шапки окон-->
+    <Style TargetType="Grid" x:Key="BackgroundTool">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFDBFF60" Offset="1"/>
+                    <GradientStop Color="#FF6F77C3" Offset="0.008"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--Фон основной панели-->
+    <Style TargetType="Grid" x:Key="BackgroundWindow">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFDBFF60" Offset="0"/>
+                    <GradientStop Color="#FFFFEA8C" Offset="0.08"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!--Рабочий стол приложения. Заголовок-->
     <Style TargetType="TextBlock" x:Key="Title">
         <Setter Property="HorizontalAlignment" Value="Left"/>
