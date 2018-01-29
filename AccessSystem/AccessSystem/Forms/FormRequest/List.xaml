@@ -20,7 +20,7 @@
             </Menu>
             <Separator Style="{StaticResource SeparatorBetweenRow}"/>
             <Grid x:Name="Grid" Margin="5,0,5,0">
-                <DataGrid x:Name="DataGridList" ItemsSource="{Binding}"
+                <DataGrid x:Name="DataGridList" ItemsSource="{Binding}" IsReadOnly="True"
                           Width="{Binding Path=ActualWidth, ElementName=Grid, Converter={as:ElementsFormConverter}, ConverterParameter='10'}"/>
             </Grid>
         </StackPanel>

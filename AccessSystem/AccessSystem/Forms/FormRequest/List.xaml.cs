@@ -45,9 +45,12 @@ namespace AccessSystem.Forms.FormRequest
             {
                 Models.Object.Request refObject = (Models.Object.Request)DataGridList.SelectedItem;
 
-                _event.PageName = "ObjectRequest";
-                _event.Id = refObject.Code;
-                _event.ToOpenForm();
+                if (refObject != null)
+                {
+                    _event.PageName = "ObjectRequest";
+                    _event.Id = refObject.Code;
+                    _event.ToOpenForm();
+                }
             }
         }
     }
