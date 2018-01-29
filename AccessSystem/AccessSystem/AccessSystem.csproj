@@ -73,6 +73,7 @@
       <DependentUpon>Message.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Object\Base.cs" />
+    <Compile Include="OtherMethods.cs" />
     <Compile Include="Validators.cs" />
     <Page Include="Forms\FormRequest\Actions.xaml">
       <SubType>Designer</SubType>
