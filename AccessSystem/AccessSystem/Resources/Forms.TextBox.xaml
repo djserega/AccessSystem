@@ -6,7 +6,7 @@
     <Style TargetType="TextBox" x:Key="FormBaseTextBox">
         <Setter Property="Background">
             <Setter.Value>
-                <SolidColorBrush Color="White" Opacity="0.75"/>
+                <SolidColorBrush Color="WhiteSmoke" Opacity="0.75"/>
             </Setter.Value>
         </Setter>
         <Setter Property="VerticalContentAlignment" Value="Center"/>

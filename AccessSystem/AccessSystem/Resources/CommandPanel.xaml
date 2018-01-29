@@ -14,8 +14,17 @@
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Margin" Value="5,5,5,0"/>
     </Style>
+    
     <Style TargetType="MenuItem" x:Key="MenuItem">
         <Setter Property="Height" Value="30"/>
     </Style>
 
+    <Style TargetType="MenuItem" x:Key="MenuItemCreate" BasedOn="{StaticResource MenuItem}">
+        <Setter Property="Header" Value="Создать"/>
+    </Style>
+    
+    <Style TargetType="MenuItem" x:Key="MenuItemEdit" BasedOn="{StaticResource MenuItem}">
+        <Setter Property="Header" Value="Редактировать"/>
+    </Style>
+    
 </ResourceDictionary>

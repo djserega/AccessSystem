@@ -18,6 +18,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
              
                 <ResourceDictionary Source="Resources/CommandPanel.xaml"/>
+                <ResourceDictionary Source="Resources/Forms.DataGrid.xaml"/>
                 <ResourceDictionary Source="Resources/Forms.DatePicker.xaml"/>
                 <ResourceDictionary Source="Resources/Forms.Label.xaml"/>
                 <ResourceDictionary Source="Resources/Forms.TextBox.xaml"/>

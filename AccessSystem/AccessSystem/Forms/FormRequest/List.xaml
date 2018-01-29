@@ -12,16 +12,15 @@
     <Grid>
         <StackPanel>
             <Menu Style="{StaticResource Menu}">
-                <MenuItem x:Name="ButtonCreate" Header="Создать" Style="{StaticResource MenuItem}"
+                <MenuItem x:Name="ButtonCreate" Style="{StaticResource MenuItemCreate}"
                           Click="ButtonCreate_Click"/>
                 <Separator Width="3"/>
-                <MenuItem x:Name="ButtonEdit" Header="Редактировать" Style="{StaticResource MenuItem}"
+                <MenuItem x:Name="ButtonEdit" Style="{StaticResource MenuItemEdit}"
                           Click="ButtonEdit_Click"/>
             </Menu>
             <Separator Style="{StaticResource SeparatorBetweenRow}"/>
-            <Grid x:Name="Grid" Margin="5,0,5,0">
-                <DataGrid x:Name="DataGridList" ItemsSource="{Binding}" IsReadOnly="True"
-                          Width="{Binding Path=ActualWidth, ElementName=Grid, Converter={as:ElementsFormConverter}, ConverterParameter='10'}"/>
+            <Grid x:Name="Grid" Style="{StaticResource GridDataGridBase}">
+                <DataGrid x:Name="DataGridList" Style="{StaticResource DataGridBase}"/>
             </Grid>
         </StackPanel>
     </Grid>
