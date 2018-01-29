@@ -16,21 +16,41 @@ namespace AccessSystem.Models.Object
         internal static object Get(Type type, string value)
         {
             if (type == typeof(TypeUser))
-            {
-                switch (value)
-                {
-                    case "admin":
-                        return TypeUser.admin;
-                    case "user":
-                        return TypeUser.user;
-                    case "onlyread":
-                        return TypeUser.onlyread;
-                    default:
-                        return null;
-                }
-            }
+                return Get_TypeUser(value);
+            else if (type == typeof(StatusRequest))
+                return Get_StatusRequest(value);
             else
                 return null;
+        }
+
+        private static object Get_TypeUser(string value)
+        {
+            switch (value)
+            {
+                case "admin":
+                    return TypeUser.admin;
+                case "user":
+                    return TypeUser.user;
+                case "onlyread":
+                    return TypeUser.onlyread;
+                default:
+                    return null;
+            }
+        }
+
+        private static object Get_StatusRequest(string value)
+        {
+            switch (value)
+            {
+                case "empty":
+                    return StatusRequest.empty;
+                case "moderated":
+                    return StatusRequest.moderated;
+                case "approved":
+                    return StatusRequest.approved;
+                default:
+                    return null;
+            }
         }
     }
 }

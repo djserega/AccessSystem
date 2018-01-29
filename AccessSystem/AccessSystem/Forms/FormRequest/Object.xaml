@@ -32,6 +32,10 @@
                         <Label Content="от" Style="{StaticResource FormBaseLabelDatePicker}"/>
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
                         <DatePicker x:Name="DatePickerDate" Style="{StaticResource DatePickerFormBase}"/>
+                        <Separator Style="{StaticResource SeparatorBetweenElement}"/>
+                        <Label Content="Статус" Width="50" Style="{StaticResource FormBaseLabel}"/>
+                        <Separator Style="{StaticResource SeparatorBetweenElement}"/>
+                        <ComboBox x:Name="ComboBoxStatus" Style="{StaticResource FormComboBoxStatusRequest}"/>
                     </StackPanel>
 
                     <Separator Style="{StaticResource SeparatorBetweenRow}"/>
