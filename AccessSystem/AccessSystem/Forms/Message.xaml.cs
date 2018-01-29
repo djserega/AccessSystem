@@ -71,14 +71,9 @@ namespace AccessSystem.Forms
 
             if (Timer > 0)
             {
-                await StartTimerPause();
+                await OtherMethods.StartTimerPause();
                 StartTimerAsync();
             }
-        }
-
-        private Task StartTimerPause()
-        {
-            return Task.Run(() => { Thread.Sleep(1000); });
         }
     }
 }
