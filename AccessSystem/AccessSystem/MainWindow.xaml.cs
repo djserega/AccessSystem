@@ -227,6 +227,14 @@ namespace AccessSystem
                 ExpandWindowMainMenu();
                 _countMouseLeftBtnDown = 0;
             }
+            else
+                ResetCountMouseLeftBtnDownAsync();
+        }
+
+        private async void ResetCountMouseLeftBtnDownAsync()
+        {
+            await OtherMethods.StartTimerPause(0.5);
+            _countMouseLeftBtnDown = 0;
         }
 
         #endregion
