@@ -69,12 +69,26 @@
     </ApplicationDefinition>
     <Compile Include="Dialogs.cs" />
     <Compile Include="ElementsFormConverter.cs" />
+    <Compile Include="Forms\FormBase\List.xaml.cs">
+      <DependentUpon>List.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormBase\Object.xaml.cs">
+      <DependentUpon>Object.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Message.xaml.cs">
       <DependentUpon>Message.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Object\Base.cs" />
     <Compile Include="OtherMethods.cs" />
     <Compile Include="Validators.cs" />
+    <Page Include="Forms\FormBase\List.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\FormBase\Object.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\FormRequest\Actions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

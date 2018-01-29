@@ -1,13 +1,13 @@
-﻿<Page x:Class="AccessSystem.Forms.FormRequest.Object"
+﻿<Page x:Class="AccessSystem.Forms.FormBase.Object"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:AccessSystem.Forms.FormRequest"
+      xmlns:local="clr-namespace:AccessSystem.Forms.FormBase"
       xmlns:as="clr-namespace:AccessSystem"
-      mc:Ignorable="d" x:Name="ObjectRequest"
+      mc:Ignorable="d" x:Name="ObjectBase"
       d:DesignHeight="300" d:DesignWidth="650"
-      Title="Заявка">
+      Title="База данных">
 
     <Grid>
         <StackPanel>
@@ -18,20 +18,31 @@
                 <MenuItem x:Name="MenuItemSave" Header="Записать" Style="{StaticResource MenuItem}"
                           Click="MenuItemSave_Click"/>
             </Menu>
+
             <Grid x:Name="Grid" Margin="5,0,5,0">
+
                 <WrapPanel Orientation="Vertical">
 
                     <Separator Style="{StaticResource SeparatorBetweenRow}"/>
-
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Номер" Style="{StaticResource FormBaseLabel}"/>
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
                         <TextBox x:Name="TextBoxCode" Style="{StaticResource FormTextBoxCode}"
                                  PreviewTextInput="TextBoxCode_PreviewTextInput" PreviewKeyDown="TextBoxCode_PreviewKeyDown" TextChanged="TextBoxCode_TextChanged"/>
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
-                        <Label Content="от" Style="{StaticResource FormBaseLabelDatePicker}"/>
+                        <Label Content="Наименование" Style="{StaticResource FormBaseLabel}"/>
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
-                        <DatePicker x:Name="DatePickerDate" Style="{StaticResource DatePickerFormBase}"/>
+                        <TextBox x:Name="TextBoxName"  Style="{StaticResource FormTextBoxName}"
+                                 Width="{Binding Path=ActualWidth, ElementName=Grid, Converter={as:ElementsFormConverter}, ConverterParameter='284'}"/>
+                    </StackPanel>
+
+                    <Separator Style="{StaticResource SeparatorBetweenRow}"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="URI подключения" Style="{StaticResource FormBaseLabel}"/>
+                        <Separator Style="{StaticResource SeparatorBetweenElement}"/>
+                        <TextBox x:Name="TextBoxConnectionURI"  Style="{StaticResource FormTextBoxConnectionURI}"
+                                 Width="{Binding Path=ActualWidth, ElementName=Grid, Converter={as:ElementsFormConverter}, ConverterParameter='120'}"/>
                     </StackPanel>
 
                     <Separator Style="{StaticResource SeparatorBetweenRow}"/>
@@ -44,6 +55,7 @@
                     </StackPanel>
 
                 </WrapPanel>
+                
             </Grid>
         </StackPanel>
     </Grid>

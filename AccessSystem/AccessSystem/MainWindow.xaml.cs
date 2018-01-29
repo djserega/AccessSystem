@@ -66,13 +66,11 @@ namespace AccessSystem
 
         #region Menu button
 
+        #region Request
+
         private void ButtonRequest_Click(object sender, RoutedEventArgs e)
         {
             OpenForm("ActionsRequest");
-        }
-
-        private void ButtonBase_Click(object sender, RoutedEventArgs e)
-        {
         }
 
         private void ButtonRequestObject_Click(object sender, RoutedEventArgs e)
@@ -84,6 +82,22 @@ namespace AccessSystem
         {
             OpenForm("ListRequest");
         }
+
+        #endregion
+
+        #region Base
+
+        private void ButtonBaseObject_Click(object sender, RoutedEventArgs e)
+        {
+            OpenForm("ObjectBase");
+        }
+
+        private void ButtonBaseList_Click(object sender, RoutedEventArgs e)
+        {
+            OpenForm("ListBase");
+        }
+
+        #endregion
 
         #endregion
 
@@ -139,20 +153,32 @@ namespace AccessSystem
 
             if (form == null)
             {
-                switch (formName)
+                if (formName.EndsWith("Request"))
                 {
-                    case "ActionsRequest":
-                        form = new Forms.FormRequest.Actions(openFormEvents);
-                        break;
-                    case "ListRequest":
-                        form = new Forms.FormRequest.List(openFormEvents);
-                        break;
-                    case "ObjectRequest":
-                        form = new Forms.FormRequest.Object(openFormEvents);
-                        break;
-                    default:
-                        return;
+                    switch (formName)
+                    {
+                        case "ListRequest":
+                            form = new Forms.FormRequest.List(openFormEvents);
+                            break;
+                        case "ObjectRequest":
+                            form = new Forms.FormRequest.Object(openFormEvents);
+                            break;
+                    }
                 }
+                else if (formName.EndsWith("Base"))
+                {
+                    switch (formName)
+                    {
+                        case "ListBase":
+                            form = new Forms.FormBase.List(openFormEvents);
+                            break;
+                        case "ObjectBase":
+                            form = new Forms.FormBase.Object(openFormEvents);
+                            break;
+                    }
+                }
+                else
+                    return;
 
                 form.Loaded += OpenForm_Loaded;
                 AddPageInListPages(formName, form);
@@ -160,7 +186,8 @@ namespace AccessSystem
             //else
             //    form.Loaded -= OpenForm_Loaded;
 
-            FrameMain.Content = form;
+            if (form != null)
+                FrameMain.Content = form;
         }
 
         private void OpenForm_Loaded(object sender, RoutedEventArgs e)

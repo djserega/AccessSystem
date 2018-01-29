@@ -36,13 +36,17 @@ namespace AccessSystem.Models.Object
                 return error;
             }
         }
-
-        public int Code { get; set; }
-        public string Comment { get; set; }
-        public bool Deletion { get; set; }
-
         public string Error { get; }
 
+
+        public int Code { get; set; }
+
+        public string Comment { get; set; }
+
+        public bool Deletion { get; set; }
+
         public string Name { get; set; }
+
+        public string ConnectionURI { get; set; }
     }
 }

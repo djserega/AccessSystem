@@ -3,7 +3,7 @@
                     xmlns:local="clr-namespace:AccessSystem.Resources">
 
     <Style TargetType="Label" x:Key="FormBaseLabel">
-        <Setter Property="Width" Value="100"/>
+        <Setter Property="Width" Value="110"/>
         <Setter Property="Background">
             <Setter.Value>
                 <SolidColorBrush Color="White" Opacity="0.75"/>

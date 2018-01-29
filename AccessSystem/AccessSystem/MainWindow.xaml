@@ -72,9 +72,11 @@
                         <TextBlock Style="{StaticResource TextBlockMenu}">Заявки доступа</TextBlock>
                     </materialDesing:PopupBox.ToggleContent>
                     <StackPanel Style="{StaticResource StackPanelPopupMenu}">
-                        <Button x:Name="ButtonRequestObject" Content="Создать" Style="{StaticResource ButtonMenu}" Click="ButtonRequestObject_Click"/>
+                        <Button x:Name="ButtonRequestObject" Content="Создать" Style="{StaticResource ButtonMenu}"
+                                Click="ButtonRequestObject_Click"/>
                         <Button x:Name="ButtonRequestListNotConfirmed" Content="Не подтвержденные" Style="{StaticResource ButtonMenu}"/>
-                        <Button x:Name="ButtonRequestList" Content="Список" Style="{StaticResource ButtonMenu}" Click="ButtonRequestList_Click"/>
+                        <Button x:Name="ButtonRequestList" Content="Список" Style="{StaticResource ButtonMenu}"
+                                Click="ButtonRequestList_Click"/>
                     </StackPanel>
                 </materialDesing:PopupBox>
                 
@@ -84,8 +86,10 @@
                         <TextBlock Style="{StaticResource TextBlockMenu}">Базы данных</TextBlock>
                     </materialDesing:PopupBox.ToggleContent>
                     <StackPanel Style="{StaticResource StackPanelPopupMenu}">
-                        <Button x:Name="ButtonBaseObject" Content="Создать" Style="{StaticResource ButtonMenu}"/>
-                        <Button x:Name="ButtonBaseList" Content="Список" Style="{StaticResource ButtonMenu}"/>
+                        <Button x:Name="ButtonBaseObject" Content="Создать" Style="{StaticResource ButtonMenu}"
+                                Click="ButtonBaseObject_Click"/>
+                        <Button x:Name="ButtonBaseList" Content="Список" Style="{StaticResource ButtonMenu}"
+                                Click="ButtonBaseList_Click"/>
                     </StackPanel>
                 </materialDesing:PopupBox>
 

@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AccessSystem.Forms.FormRequest
+namespace AccessSystem.Forms.FormBase
 {
     /// <summary>
     /// Логика взаимодействия для List.xaml
@@ -22,13 +22,13 @@ namespace AccessSystem.Forms.FormRequest
     public partial class List : Page
     {
         private OpenFormEvents _event;
-        public ICollection<Request> ListObject { get; private set; }
+        public ICollection<Base> ListObject { get; private set; }
 
         internal List(OpenFormEvents openFormEvents)
         {
             InitializeComponent();
 
-            ListObject = new List<Request>();
+            ListObject = new List<Base>();
 
             _event = openFormEvents;
             DataGridList.ItemsSource = ListObject;
@@ -36,7 +36,7 @@ namespace AccessSystem.Forms.FormRequest
 
         private void ButtonCreate_Click(object sender, RoutedEventArgs e)
         {
-            _event.PageName = "ObjectRequest";
+            _event.PageName = "ObjectBase";
             _event.ToOpenForm();
         }
 
@@ -44,7 +44,7 @@ namespace AccessSystem.Forms.FormRequest
         {
             if (DataGridList.SelectedItem != null)
             {
-                Request refObject = (Request)DataGridList.SelectedItem;
+                Base refObject = (Base)DataGridList.SelectedItem;
 
                 if (refObject != null)
                 {
