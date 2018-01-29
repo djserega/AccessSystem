@@ -11,11 +11,11 @@ namespace AccessSystem.Models
     public interface IBaseRefClass
     {
         string this[string columnName] { get; }
+        string Error { get; }
 
         int Code { get; set; }
         string Comment { get; set; }
         bool Deletion { get; set; }
-        string Error { get; }
     }
 
     public abstract class BaseRefClass : IBaseRefClass, IDataErrorInfo
@@ -48,15 +48,10 @@ namespace AccessSystem.Models
                 return error;
             }
         }
+        public string Error { get; }
 
         public int Code { get; set; }
         public bool Deletion { get; set; }
         public string Comment { get; set; }
-
-        public string Error
-        {
-            get;
-        }
     }
-
 }

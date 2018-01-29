@@ -9,22 +9,22 @@ namespace AccessSystem.Models
     public interface IBaseRefClassDate
     {
         string this[string columnName] { get; }
+        string Error { get; }
 
         int Code { get; set; }
-        string Comment { get; set; }
         DateTime Date { get; set; }
+        string Comment { get; set; }
         bool Deletion { get; set; }
-        string Error { get; }
     }
 
     public abstract class BaseRefClassDate : IBaseRefClass, IBaseRefClassDate
     {
         public abstract string this[string columnName] { get; }
+        public abstract string Error { get; }
 
-        public abstract DateTime Date { get; set; }
         public abstract int Code { get; set; }
+        public abstract DateTime Date { get; set; }
         public abstract string Comment { get; set; }
         public abstract bool Deletion { get; set; }
-        public abstract string Error { get; }
     }
 }

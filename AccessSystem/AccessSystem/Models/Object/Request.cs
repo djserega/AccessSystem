@@ -37,12 +37,12 @@ namespace AccessSystem.Models.Object
                 return error;
             }
         }
+        public string Error { get; }
 
         public int Code { get; set; }
-        public string Comment { get; set; }
         public DateTime Date { get; set; }
+        public string Comment { get; set; }
         public bool Deletion { get; set; }
-
-        public string Error { get; }
+        public StatusRequest Status { get; set; }
     }
 }
