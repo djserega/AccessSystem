@@ -8,6 +8,7 @@
     </Style>
 
     <Style TargetType="DataGrid" x:Key="DataGridBase">
+        <Setter Property="AutoGenerateColumns" Value="True"/>
         <Setter Property="ItemsSource" Value="{Binding}"/>
         <Setter Property="IsReadOnly" Value="True"/>
         <Setter Property="Width" Value="{Binding Path=ActualWidth, ElementName=Grid, Converter={as:ElementsFormConverter}, ConverterParameter='10'}"/>
@@ -16,6 +17,31 @@
                 <SolidColorBrush Color="WhiteSmoke" Opacity="0.75"/>
             </Setter.Value>
         </Setter>
+        <Setter Property="ColumnHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="WhiteSmoke" Opacity="0.01"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Height" Value="25"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        
+        <!--<Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="DataGrid">
+                    <Grid>
+                        <Border x:Name="DataGridBorder" Background="WhiteSmoke" CornerRadius="5" Height="30" Opacity="0.50"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>-->
+
     </Style>
     
 </ResourceDictionary>
