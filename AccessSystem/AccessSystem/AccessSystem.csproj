@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ConnectTo1C.cs" />
     <Compile Include="Dialogs.cs" />
     <Compile Include="ElementsFormConverter.cs" />
     <Compile Include="Forms\FormBase\List.xaml.cs">
