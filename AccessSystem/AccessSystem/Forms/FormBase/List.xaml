@@ -18,7 +18,6 @@
                 <MenuItem x:Name="ButtonEdit" Style="{StaticResource MenuItemEdit}"
                           Click="ButtonEdit_Click"/>
             </Menu>
-            <Separator Style="{StaticResource SeparatorBetweenRow}"/>
             <Grid x:Name="Grid" Style="{StaticResource GridDataGridBase}">
                 <DataGrid x:Name="DataGridList" Style="{StaticResource DataGridBase}"/>
             </Grid>
