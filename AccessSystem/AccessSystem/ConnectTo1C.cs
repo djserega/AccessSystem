@@ -243,6 +243,5 @@ namespace AccessSystem
             public string user = String.Empty;
             public string password = String.Empty;
         }
-
     }
 }
