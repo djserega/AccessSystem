@@ -20,7 +20,7 @@ namespace AccessSystem.Validators
             {
                 newValue = int.Parse((string)value);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 newValue = 0;
                 return GetErrorValidation("Ошибка. Код должен быть числом.");

@@ -24,7 +24,7 @@ namespace AccessSystem
         private string _password;
 
         public Body body = new Body();
-        private string _token;
+        private string _token = String.Empty;
 
         #endregion
 
@@ -77,7 +77,6 @@ namespace AccessSystem
                 if (_base == null)
                     throw new NotImplementedException();
 #warning need fix
-<<<<<<< HEAD
                 //else if (request.Base != _base)
                 //    throw new NotImplementedException();
 
@@ -90,20 +89,6 @@ namespace AccessSystem
                 //if (result.Success)
                 //    return true;
                 //else
-=======
-                else if (request.Base != _base)
-                    throw new NotImplementedException();
-
-                string bodyRequest = ;
-
-                string resultString = ;
-
-                var result = ;
-
-                if (result.Success)
-                    return true;
-                else
->>>>>>> add class ConnectTo1C
                     return false;
             }
             catch (Exception ex)
@@ -118,11 +103,7 @@ namespace AccessSystem
         }
 
         #endregion
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> add class ConnectTo1C
         #region http methods
 
         private string CallGet(string getPostfix, int timeout = 10)
@@ -245,12 +226,7 @@ namespace AccessSystem
 
         private void InitializeObject()
         {
-<<<<<<< HEAD
             _url = _base.ConnectionURI;
-=======
-#warning need fix
-            //_url = _base.
->>>>>>> add class ConnectTo1C
             if (String.IsNullOrWhiteSpace(_url))
                 throw new NotImplementedException();
         }
