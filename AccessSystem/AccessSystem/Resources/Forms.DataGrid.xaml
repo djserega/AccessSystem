@@ -17,31 +17,16 @@
                 <SolidColorBrush Color="WhiteSmoke" Opacity="0.75"/>
             </Setter.Value>
         </Setter>
-        <Setter Property="ColumnHeaderStyle">
+    </Style>
+
+    <Style TargetType="DataGridColumnHeader" x:Key="DataGridColumnHeaderBase">
+        <Setter Property="Background">
             <Setter.Value>
-                <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="Background">
-                        <Setter.Value>
-                            <SolidColorBrush Color="WhiteSmoke" Opacity="0.01"/>
-                        </Setter.Value>
-                    </Setter>
-                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                    <Setter Property="Height" Value="25"/>
-                    <Setter Property="BorderThickness" Value="1"/>
-                </Style>
+                <SolidColorBrush Color="WhiteSmoke" Opacity="0.75"/>
             </Setter.Value>
         </Setter>
-        
-        <!--<Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="DataGrid">
-                    <Grid>
-                        <Border x:Name="DataGridBorder" Background="WhiteSmoke" CornerRadius="5" Height="30" Opacity="0.50"/>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>-->
-
+        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderBrush" Value="Gray"/>
     </Style>
-    
+
 </ResourceDictionary>
