@@ -76,6 +76,7 @@
     <Compile Include="Forms\FormBase\Object.xaml.cs">
       <DependentUpon>Object.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\GeneralMethods.cs" />
     <Compile Include="Forms\Message.xaml.cs">
       <DependentUpon>Message.xaml</DependentUpon>
     </Compile>
