@@ -1,6 +1,7 @@
 ﻿using AccessSystem.Models.Object;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,5 +60,8 @@ namespace AccessSystem.Forms.FormBase
         {
             new GeneralMethods().SetBaseStyleDataGrid(ref DataGridList);
         }
+
+        private void DataGridList_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+            => e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor).DisplayName;
     }
 }
