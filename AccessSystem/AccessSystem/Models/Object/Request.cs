@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -39,10 +40,14 @@ namespace AccessSystem.Models.Object
         }
         public string Error { get; }
 
+        [DisplayName("Код")]
         public int Code { get; set; }
+        [DisplayName("Дата")]
         public DateTime Date { get; set; }
+        [DisplayName("Комментарий")]
         public string Comment { get; set; }
         public bool Deletion { get; set; }
+        [DisplayName("Статус")]
         public StatusRequest Status { get; set; }
     }
 }

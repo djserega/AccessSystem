@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,15 +39,14 @@ namespace AccessSystem.Models.Object
         }
         public string Error { get; }
 
-
+        [DisplayName("Код")]
         public int Code { get; set; }
-
-        public string Comment { get; set; }
-
-        public bool Deletion { get; set; }
-
+        [DisplayName("Наименование")]
         public string Name { get; set; }
-
+        [DisplayName("Строка подключения")]
         public string ConnectionURI { get; set; }
+        [DisplayName("Комментарий")]
+        public string Comment { get; set; }
+        public bool Deletion { get; set; }
     }
 }
