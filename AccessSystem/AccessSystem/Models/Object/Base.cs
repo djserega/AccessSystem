@@ -48,5 +48,11 @@ namespace AccessSystem.Models.Object
         [DisplayName("Комментарий")]
         public string Comment { get; set; }
         public bool Deletion { get; set; }
+        public ICollection<Role> Roles { get; set; }
+
+        public Base()
+        {
+            Roles = new List<Role>();
+        }
     }
 }
