@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AccessSystem.Models.Object
 {
-    public enum StatusRequest { empty, moderated, approved }
+    public enum StatusRequest { @new, moderated, approved }
     public enum TypesAccessRights { all, read, create, posted, deletion }
     public enum TypeUser { admin, user, onlyread }
     public enum SortDirection { none, asc, dsc }
@@ -43,7 +43,7 @@ namespace AccessSystem.Models.Object
             switch (value)
             {
                 case "empty":
-                    return StatusRequest.empty;
+                    return StatusRequest.@new;
                 case "moderated":
                     return StatusRequest.moderated;
                 case "approved":
