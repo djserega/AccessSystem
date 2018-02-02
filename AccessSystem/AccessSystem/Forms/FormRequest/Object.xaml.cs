@@ -72,8 +72,12 @@ namespace AccessSystem.Forms.FormRequest
             e.Handled = e.Key == Key.Space;
         }
 
+
         #endregion
 
-
+        private void ObjectRequest_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataGridRole.ItemsSource = Ref.Roles;
+        }
     }
 }

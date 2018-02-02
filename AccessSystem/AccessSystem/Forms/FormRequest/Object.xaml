@@ -7,7 +7,8 @@
       xmlns:as="clr-namespace:AccessSystem"
       mc:Ignorable="d" x:Name="ObjectRequest"
       d:DesignHeight="300" d:DesignWidth="650"
-      Title="Заявка">
+      Title="Заявка"
+      Loaded="ObjectRequest_Loaded">
 
     <Grid>
         <StackPanel>
@@ -36,6 +37,22 @@
                         <Label Content="Статус" Width="50" Style="{StaticResource FormBaseLabel}"/>
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
                         <ComboBox x:Name="ComboBoxStatus" Style="{StaticResource FormComboBoxStatusRequest}"/>
+                    </StackPanel>
+
+                    <Separator Style="{StaticResource SeparatorBetweenRow}"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Пользователь" Style="{StaticResource FormBaseLabel}"/>
+                        <Separator Style="{StaticResource SeparatorBetweenElement}"/>
+                        <TextBox x:Name="TextBoxUser" Style="{StaticResource FormTextBoxUser}"/>
+                    </StackPanel>
+
+                    <Separator Style="{StaticResource SeparatorBetweenRow}"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Роли" Style="{StaticResource FormLabelHeightMin}"/>
+                        <Separator Style="{StaticResource SeparatorBetweenElement}"/>
+                        <DataGrid x:Name="DataGridRole" Style="{StaticResource DataGirdRole}"/>
                     </StackPanel>
 
                     <Separator Style="{StaticResource SeparatorBetweenRow}"/>
