@@ -49,5 +49,13 @@ namespace AccessSystem.Models.Object
         public bool Deletion { get; set; }
         [DisplayName("Статус")]
         public StatusRequest Status { get; set; }
+        [DisplayName("Пользователь")]
+        public User User { get; set; }
+        public ICollection<Role> Roles { get; set; }
+
+        public Request()
+        {
+            Roles = new List<Role>();
+        }
     }
 }
