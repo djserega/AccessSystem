@@ -25,6 +25,9 @@
     </Style>
     <Style TargetType="TextBox" x:Key="FormTextBoxName" BasedOn="{StaticResource FormBaseTextBox}">
     </Style>
+    <Style TargetType="TextBox" x:Key="FormTextBoxUser" BasedOn="{StaticResource FormBaseTextBox}">
+        <Setter Property="Width" Value="250"/>
+    </Style>
     <Style TargetType="TextBox" x:Key="FormTextBoxComment" BasedOn="{StaticResource FormBaseTextBox}">
     </Style>
     <Style TargetType="TextBox" x:Key="FormTextBoxConnectionURI" BasedOn="{StaticResource FormBaseTextBox}">

@@ -19,6 +19,11 @@
         </Setter>
     </Style>
 
+    <Style TargetType="DataGrid" x:Key="DataGirdRole" BasedOn="{StaticResource DataGridBase}">
+        <Setter Property="Width" Value="{Binding Path=ActualWidth, ElementName=Grid, Converter={as:ElementsFormConverter}, ConverterParameter='119'}"/>
+        <Setter Property="Height" Value="150"/>
+    </Style>
+
     <Style TargetType="DataGridColumnHeader" x:Key="DataGridColumnHeaderBase">
         <Setter Property="Background">
             <Setter.Value>

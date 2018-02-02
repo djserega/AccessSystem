@@ -11,6 +11,11 @@
         </Setter>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
+
+    <Style TargetType="Label" x:Key="FormLabelHeightMin" BasedOn="{StaticResource FormBaseLabel}">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
     
     <Style TargetType="Label" x:Key="FormBaseLabelDatePicker" BasedOn="{StaticResource FormBaseLabel}">
         <Setter Property="Width" Value="25"/>
