@@ -8,9 +8,9 @@ namespace AccessSystem.Models.Object
 {
     public class RequestRole : IRole
     {
+        public int Checked { get; set; }
         public int Code { get; set; }
         public string Name { get; set; }
         public string Synonym { get; set; }
-        public int Checked { get; set; }
     }
 }

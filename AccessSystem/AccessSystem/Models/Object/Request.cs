@@ -51,11 +51,11 @@ namespace AccessSystem.Models.Object
         public StatusRequest Status { get; set; }
         [DisplayName("Пользователь")]
         public User User { get; set; }
-        public ICollection<Role> Roles { get; set; }
+        public ICollection<RequestRole> Roles { get; set; }
 
         public Request()
         {
-            Roles = new List<Role>();
+            Roles = new List<RequestRole>();
         }
     }
 }
