@@ -7,7 +7,8 @@
       xmlns:as="clr-namespace:AccessSystem"
       mc:Ignorable="d" x:Name="ObjectBase"
       d:DesignHeight="300" d:DesignWidth="650"
-      Title="База данных">
+      Title="База данных"
+      Loaded="ObjectBase_Loaded">
 
     <Grid>
         <StackPanel>
@@ -32,8 +33,7 @@
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
                         <Label Content="Наименование" Style="{StaticResource FormBaseLabel}"/>
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
-                        <TextBox x:Name="TextBoxName"  Style="{StaticResource FormTextBoxName}"
-                                 Width="{Binding Path=ActualWidth, ElementName=Grid, Converter={as:ElementsFormConverter}, ConverterParameter='284'}"/>
+                        <TextBox x:Name="TextBoxName"  Style="{StaticResource FormTextBoxName}"/>
                     </StackPanel>
 
                     <Separator Style="{StaticResource SeparatorBetweenRow}"/>
@@ -41,8 +41,15 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="URI подключения" Style="{StaticResource FormBaseLabel}"/>
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
-                        <TextBox x:Name="TextBoxConnectionURI"  Style="{StaticResource FormTextBoxConnectionURI}"
-                                 Width="{Binding Path=ActualWidth, ElementName=Grid, Converter={as:ElementsFormConverter}, ConverterParameter='120'}"/>
+                        <TextBox x:Name="TextBoxConnectionURI"  Style="{StaticResource FormTextBoxConnectionURI}"/>
+                    </StackPanel>
+
+                    <Separator Style="{StaticResource SeparatorBetweenRow}"/>
+                
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Роли" Style="{StaticResource FormLabelHeightMin}"/>
+                        <Separator Style="{StaticResource SeparatorBetweenElement}"/>
+                        <DataGrid x:Name="DataGridRole" Style="{StaticResource DataGirdRole}"/>
                     </StackPanel>
 
                     <Separator Style="{StaticResource SeparatorBetweenRow}"/>
@@ -50,8 +57,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Комментарий" Style="{StaticResource FormBaseLabel}"/>
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
-                        <TextBox x:Name="TextBoxComment"  Style="{StaticResource FormTextBoxComment}"
-                                 Width="{Binding Path=ActualWidth, ElementName=Grid, Converter={as:ElementsFormConverter}, ConverterParameter='120'}"/>
+                        <TextBox x:Name="TextBoxComment"  Style="{StaticResource FormTextBoxComment}"/>
                     </StackPanel>
 
                 </WrapPanel>

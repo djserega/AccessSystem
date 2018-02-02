@@ -73,5 +73,10 @@ namespace AccessSystem.Forms.FormBase
         }
 
         #endregion
+
+        private void ObjectBase_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataGridRole.ItemsSource = Ref.Roles;
+        }
     }
 }
