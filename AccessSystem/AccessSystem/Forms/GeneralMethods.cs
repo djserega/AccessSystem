@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,5 +21,8 @@ namespace AccessSystem.Forms
                 dataGrid.Columns[i].Header = $"  {dataGrid.Columns[i].Header}  ";
             }
         }
+
+        internal void SetColumnHeader(ref DataGridAutoGeneratingColumnEventArgs e) 
+            => e.Column.Header = ((PropertyDescriptor)e.PropertyDescriptor).DisplayName;
     }
 }
