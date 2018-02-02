@@ -7,7 +7,14 @@ using System.Threading.Tasks;
 
 namespace AccessSystem.Models.Object
 {
-    public class Role
+    public interface IRole
+    {
+        int Code { get; set; }
+        string Name { get; set; }
+        string Synonym { get; set; }
+    }
+
+    public class Role : IRole
     {
         [Key]
         public int Code { get; set; }
