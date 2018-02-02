@@ -82,6 +82,7 @@
     </Compile>
     <Compile Include="Models\Object\Base.cs" />
     <Compile Include="Models\Object\Enums.cs" />
+    <Compile Include="Models\Object\RequestRole.cs" />
     <Compile Include="Models\Object\Role.cs" />
     <Compile Include="Models\Object\User.cs" />
     <Compile Include="OtherMethods.cs" />
