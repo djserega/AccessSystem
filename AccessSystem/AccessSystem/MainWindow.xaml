@@ -63,9 +63,9 @@
                 <RowDefinition Height="3"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-          
+
             <StackPanel x:Name="StackPanelLeft" Grid.Row="0">
-               
+
                 <materialDesing:PopupBox Style="{StaticResource PopupBoxMenu}"
                                          Width="{Binding Path=ActualWidth, ElementName=StackPanelLeft}">
                     <materialDesing:PopupBox.ToggleContent>
@@ -79,7 +79,7 @@
                                 Click="ButtonRequestList_Click"/>
                     </StackPanel>
                 </materialDesing:PopupBox>
-                
+
                 <materialDesing:PopupBox Style="{StaticResource PopupBoxMenu}"
                                          Width="{Binding Path=ActualWidth, ElementName=StackPanelLeft}">
                     <materialDesing:PopupBox.ToggleContent>
@@ -105,7 +105,7 @@
                 </materialDesing:PopupBox>
 
             </StackPanel>
-            
+
             <StackPanel Grid.Row="1">
                 <Separator Background="WhiteSmoke" Height="2"/>
             </StackPanel>
