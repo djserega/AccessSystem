@@ -62,8 +62,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Комментарий" Style="{StaticResource FormBaseLabel}"/>
                         <Separator Style="{StaticResource SeparatorBetweenElement}"/>
-                        <TextBox x:Name="TextBoxComment"  Style="{StaticResource FormTextBoxComment}"
-                                 Width="{Binding Path=ActualWidth, ElementName=Grid, Converter={as:ElementsFormConverter}, ConverterParameter='120'}"/>
+                        <TextBox x:Name="TextBoxComment"  Style="{StaticResource FormTextBoxComment}"/>
                     </StackPanel>
 
                 </WrapPanel>
