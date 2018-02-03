@@ -18,8 +18,11 @@ namespace AccessSystem.Models.Object
     public class Role : IRole
     {
         [Key]
+        [DisplayName("Код")]
         public int Code { get; set; }
+        [DisplayName("Имя")]
         public string Name { get; set; }
+        [DisplayName("Наименование")]
         public string Synonym { get; set; }
     }
 }
