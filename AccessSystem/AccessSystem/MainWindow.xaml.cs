@@ -105,15 +105,17 @@ namespace AccessSystem
 
         #region Sheets
 
-        private void AddSheetOpenForm(string name, string caption)
+        private void AddSheetOpenForm(string nameForm, string caption)
         {
-            if (!String.IsNullOrWhiteSpace(_listSheets.Find(f => f == name)))
+            if (!String.IsNullOrWhiteSpace(_listSheets.Find(f => f == nameForm)))
                 return;
 
-            Style style;
+            Style styleOpenedForm;
+            Style styleCloseForm;
             try
             {
-                style = (Style)FindResource("ButtonMenuOpened");
+                styleOpenedForm = (Style)FindResource("ButtonMenuOpened");
+                styleCloseForm = (Style)FindResource("ButtonMenuOpenedClose");
             }
             catch (ResourceReferenceKeyNotFoundException)
             {
@@ -121,23 +123,49 @@ namespace AccessSystem
                 return;
             }
 
-            Button button = new Button()
+            StackPanel stackPanel = new StackPanel()
             {
-                Name = name,
-                Content = caption,
-                Style = style,
+                Name = nameForm + "StackPanel",
+                Orientation = Orientation.Horizontal
             };
-            button.Click += PressedButtonOpenForm;
 
-            StackPanelOpened.Children.Add(button);
+            Button buttonOpenForm = new Button()
+            {
+                Name = nameForm,
+                Content = caption,
+                Style = styleOpenedForm,
+            };
+            buttonOpenForm.Click += PressedButtonOpenForm;
 
-            _listSheets.Add(name);
+            stackPanel.Children.Add(buttonOpenForm);
+
+            Button buttonClose = new Button()
+            {
+                Name = nameForm + "Close",
+                Content = "x",
+                Style = styleCloseForm
+            };
+            buttonClose.Click += PressetButtonCloseForm;
+
+            stackPanel.Children.Add(buttonClose);
+
+            StackPanelOpened.Children.Add(stackPanel);
+
+            _listSheets.Add(nameForm);
         }
 
         private void PressedButtonOpenForm(object sender, RoutedEventArgs e)
         {
             OpenForm(((Button)e.Source).Name);
+        }
 
+        private void PressetButtonCloseForm(object sender, RoutedEventArgs e)
+        {
+            string formName = ((Button)e.Source).Name;
+
+            formName = formName.Substring(0, formName.Length - 5);
+
+            DeletePageInListPages(formName);
         }
 
         #endregion
@@ -232,8 +260,25 @@ namespace AccessSystem
             if (String.IsNullOrWhiteSpace(formName))
                 return;
 
-            if (FindPageName(formName) != null)
+            Page page = FindPageName(formName);
+
+            if (page != null)
+            {
+                FrameMain.Content = null;
                 _listPage.Remove(formName);
+                _listSheets.Remove(_listSheets.Find(f => f == formName));
+
+                string formNameClose = formName + "StackPanel";
+                var childrenElement = StackPanelOpened.Children;
+                for (int i = 0; i < childrenElement.Count; i++)
+                {
+                    if (((StackPanel)childrenElement[i]).Name == formNameClose)
+                    {
+                        childrenElement.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
         }
 
         #endregion

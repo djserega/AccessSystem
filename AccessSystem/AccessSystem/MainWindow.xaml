@@ -109,8 +109,9 @@
             <StackPanel Grid.Row="1">
                 <Separator Background="WhiteSmoke" Height="2"/>
             </StackPanel>
-            <StackPanel x:Name="StackPanelOpened" Grid.Row="2">
-            </StackPanel>
+
+            <StackPanel x:Name="StackPanelOpened" Grid.Row="2"/>
+
         </Grid>
 
         <Grid Grid.Column="1" Grid.Row="2">

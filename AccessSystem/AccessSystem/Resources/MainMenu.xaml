@@ -103,6 +103,13 @@
         <Setter Property="Background" Value="{x:Null}"/>
         <Setter Property="Foreground" Value="DarkRed"/>
         <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="Width" Value="90"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
+    <Style TargetType="Button" x:Key="ButtonMenuOpenedClose" BasedOn="{StaticResource ButtonMenuOpened}">
+        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="Width" Value="auto"/>
+    </Style>
+    
 </ResourceDictionary>
