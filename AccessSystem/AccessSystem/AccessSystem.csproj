@@ -70,6 +70,8 @@
     <Compile Include="ConnectTo1C.cs" />
     <Compile Include="Dialogs.cs" />
     <Compile Include="ElementsFormConverter.cs" />
+    <Compile Include="EntityFramework\Context.cs" />
+    <Compile Include="EntityFramework\Repository.cs" />
     <Compile Include="Forms\FormBase\List.xaml.cs">
       <DependentUpon>List.xaml</DependentUpon>
     </Compile>
