@@ -11,7 +11,7 @@ namespace AccessSystem.EntityFramework
     public class Context : DbContext
     {
         public DbSet<Base> Base { get; set; }
-        public DbSet<Request> Reauest { get; set; }
+        public DbSet<Request> Request { get; set; }
         public DbSet<User> User { get; set; }
     }
 }
