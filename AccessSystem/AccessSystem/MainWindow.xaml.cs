@@ -264,7 +264,11 @@ namespace AccessSystem
 
             if (page != null)
             {
-                FrameMain.Content = null;
+                if (FrameMain.Content != null
+                    & FrameMain.Content is Page
+                    & ((Page)FrameMain.Content).Name == formName)
+                    FrameMain.Content = null;
+
                 _listPage.Remove(formName);
                 _listSheets.Remove(_listSheets.Find(f => f == formName));
 
